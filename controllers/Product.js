@@ -1,8 +1,8 @@
 // Import model Product
-import Product from "../models/Product.js";
+const Product = require("../models/Product.js");
 
 // Get semua product
-export const getProducts = async (req, res) => {
+exports.getProducts = async (req, res) => {
     try {
         const product = await Product.findAll();
         res.send(product);
@@ -12,7 +12,7 @@ export const getProducts = async (req, res) => {
 }
 
 // Get product berdasarkan id
-export const getProductById = async (req, res) => {
+exports.getProductById = async (req, res) => {
     try {
         const product = await Product.findAll({
             where: {
@@ -26,7 +26,7 @@ export const getProductById = async (req, res) => {
 }
 
 // Create product baru
-export const createProduct = async (req, res) => {
+exports.createProduct = async (req, res) => {
     try {
         await Product.create(req.body);
         res.json({
@@ -38,7 +38,7 @@ export const createProduct = async (req, res) => {
 }
 
 // Update product berdasarkan id
-export const updateProduct = async (req, res) => {
+exports.updateProduct = async (req, res) => {
     try {
         await Product.update(req.body, {
             where: {
@@ -55,7 +55,7 @@ export const updateProduct = async (req, res) => {
 
 
 // Delete product berdasarkan id
-export const deleteProduct = async (req, res) => {
+exports.deleteProduct = async (req, res) => {
     try {
         await Product.destroy({
             where: {

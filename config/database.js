@@ -1,5 +1,5 @@
 // import sequelize
-import { Sequelize } from "sequelize";
+const Sequelize = require("sequelize");
 
 // create connection
 const db = new Sequelize('db_produk', 'root', '', {
@@ -7,5 +7,5 @@ const db = new Sequelize('db_produk', 'root', '', {
     dialect: 'mysql'
 });
 
-// export connection
-export default db;
+
+module.exports = db;

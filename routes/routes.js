@@ -1,15 +1,15 @@
 // Import express
-import express from "express";
+const express = require("express");
 // Import Controller Product
-import { 
+const {
     getProducts,
     getProductById,
     createProduct,
     updateProduct,
     deleteProduct
- } from "../controllers/Product.js";
+} = require("../controllers/Product.js");
 
- // Init express router
+// Init express router
 const router = express.Router();
 
 // Route get semua product
@@ -24,4 +24,4 @@ router.put('/products/:id', updateProduct);
 router.delete('/products/:id', deleteProduct);
 
 // export router
-export default router;
+module.exports = router;

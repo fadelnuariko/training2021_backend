@@ -1,11 +1,11 @@
 // Import express
-import express from "express";
-// Import cors
-import cors from "cors";
-// Import connection
-import db from "./config/database.js";
-// Import router
-import Router from "./routes/routes.js";
+const express = require("express");
+// const { cors } 
+const cors = require("cors");
+// const connection 
+const db = require("./config/database.js");
+// const router 
+const Router = require("./routes/routes.js");
 
 // Init express
 const app = express();
@@ -15,12 +15,16 @@ app.use(express.json());
 app.use(cors());
 
 // Testing database connection 
-try {
-    await db.authenticate();
-    console.log('Connection has been established successfully.');
-} catch (error) {
-    console.error('Unable to connect to the database:', error);
+async function connectDB() {
+    try {
+        await db.authenticate();
+        console.log('DB Berhasil terhubung');
+    } catch (error) {
+        console.error('TErdapat masalah pada koneksi:', error);
+    }
 }
+
+connectDB();
 
 // use router
 app.use(Router);
