@@ -2,7 +2,7 @@
 import { Sequelize } from "sequelize";
 
 // create connection
-const db = new Sequelize('sequelize_db', 'root', '', {
+const db = new Sequelize('db_produk', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
 });
